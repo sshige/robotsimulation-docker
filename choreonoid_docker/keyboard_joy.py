@@ -28,7 +28,7 @@ class JoyPub:
                 msg = Joy()
                 msg.axes = [0]*8
                 msg.buttons = [0]*11
-                msg.axes[1] = -1
+                # msg.axes[1] = -1
                 self.pub_.publish(msg)
                 self.rate.sleep()
         except Exception as e:

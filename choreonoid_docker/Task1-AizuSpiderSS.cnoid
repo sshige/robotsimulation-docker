@@ -223,7 +223,7 @@ items:
           data: 
             modelFile: "${SHARE}/model/AizuSpider/AizuSpiderSS.body"
             currentBaseLink: "CHASSIS"
-            rootPosition: [ 5, 1, 0.035 ]
+            rootPosition: [ 5, -1, 0.035 ]
             rootAttitude: [ 
               1, 0, 0, 
               0, 1, 0, 
@@ -231,7 +231,7 @@ items:
             jointPositions: [ 
                0.000000,  0.000000,  0.000000,  0.000000, -1.570796,  0.872665,  0.872665,  0.000000,  0.000000,  0.000000, 
                0.000000,  0.000000,  0.000000 ]
-            initialRootPosition: [ 5, 1, 0.035 ]
+            initialRootPosition: [ 5, -1, 0.035 ]
             initialRootAttitude: [ 
               1, 0, 0, 
               0, 1, 0, 
@@ -300,7 +300,7 @@ items:
               class: BodyPublisherItem
               data: 
                 maxPublishRate: 30
-        -
+        - 
           id: 20
           name: "AizuSpiderCC"
           plugin: Body
@@ -308,7 +308,7 @@ items:
           data: 
             modelFile: "${SHARE}/model/AizuSpider/AizuSpiderSS.body"
             currentBaseLink: "CHASSIS"
-            rootPosition: [ 5, 2, 0.035 ]
+            rootPosition: [ 3, 0, 0.035 ]
             rootAttitude: [ 
               1, 0, 0, 
               0, 1, 0, 
@@ -316,7 +316,7 @@ items:
             jointPositions: [ 
                0.000000,  0.000000,  0.000000,  0.000000, -1.570796,  0.872665,  0.872665,  0.000000,  0.000000,  0.000000, 
                0.000000,  0.000000,  0.000000 ]
-            initialRootPosition: [ 5, 2, 0.035 ]
+            initialRootPosition: [ 3, 0, 0.035 ]
             initialRootAttitude: [ 
               1, 0, 0, 
               0, 1, 0, 
@@ -384,8 +384,8 @@ items:
               plugin: ROS
               class: BodyPublisherItem
               data: 
-                maxPublishRate: 30        
-        -
+                maxPublishRate: 30
+        - 
           id: 26
           name: "AizuSpiderDD"
           plugin: Body
@@ -393,7 +393,7 @@ items:
           data: 
             modelFile: "${SHARE}/model/AizuSpider/AizuSpiderSS.body"
             currentBaseLink: "CHASSIS"
-            rootPosition: [ 5, -1, 0.035 ]
+            rootPosition: [ 3, -1, 0.035 ]
             rootAttitude: [ 
               1, 0, 0, 
               0, 1, 0, 
@@ -401,7 +401,7 @@ items:
             jointPositions: [ 
                0.000000,  0.000000,  0.000000,  0.000000, -1.570796,  0.872665,  0.872665,  0.000000,  0.000000,  0.000000, 
                0.000000,  0.000000,  0.000000 ]
-            initialRootPosition: [ 5, -1, 0.035 ]
+            initialRootPosition: [ 3, -1, 0.035 ]
             initialRootAttitude: [ 
               1, 0, 0, 
               0, 1, 0, 
@@ -469,8 +469,92 @@ items:
               plugin: ROS
               class: BodyPublisherItem
               data: 
-                maxPublishRate: 30                
-
+                maxPublishRate: 30
+        - 
+          id: 32
+          name: "AizuSpiderEE"
+          plugin: Body
+          class: BodyItem
+          data: 
+            modelFile: "${SHARE}/model/AizuSpider/AizuSpiderSS.body"
+            currentBaseLink: "CHASSIS"
+            rootPosition: [ 1, -0.5, 0.035 ]
+            rootAttitude: [ 
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
+            jointPositions: [ 
+               0.000000,  0.000000,  0.000000,  0.000000, -1.570796,  0.872665,  0.872665,  0.000000,  0.000000,  0.000000, 
+               0.000000,  0.000000,  0.000000 ]
+            initialRootPosition: [ 1, -0.5, 0.035 ]
+            initialRootAttitude: [ 
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
+            initialJointPositions: [ 
+               0.000000,  0.000000,  0.000000,  0.000000, -1.570796,  0.872665,  0.872665,  0.000000,  0.000000,  0.000000, 
+               0.000000,  0.000000,  0.000000 ]
+            zmp: [ 0, 0, 0 ]
+            collisionDetection: true
+            selfCollisionDetection: true
+            isEditable: true
+          children: 
+            - 
+              id: 33
+              name: "AizuSpiderController"
+              plugin: Body
+              class: SimpleControllerItem
+              data: 
+                isNoDelayMode: false
+                controllerOptions: ""
+                controller: "AizuSpiderController"
+                baseDirectory: "Controller directory"
+                reloading: true
+                isOldTargetVariableMode: false
+              children: 
+                - 
+                  id: 34
+                  name: "Jaco2Controller"
+                  plugin: Body
+                  class: SimpleControllerItem
+                  data: 
+                    isNoDelayMode: false
+                    controllerOptions: ""
+                    controller: "Jaco2Controller"
+                    baseDirectory: "Controller directory"
+                    reloading: true
+                    isOldTargetVariableMode: false
+                - 
+                  id: 35
+                  name: "AizuSpider-JoystickInput"
+                  plugin: Body
+                  class: SimpleControllerItem
+                  data: 
+                    isNoDelayMode: false
+                    controllerOptions: ""
+                    controller: "JoyTopicSubscriberController"
+                    baseDirectory: "Controller directory"
+                    reloading: false
+                    isOldTargetVariableMode: false
+            - 
+              id: 36
+              name: "BodyTrackingCamera"
+              plugin: Body
+              class: BodyTrackingCameraItem
+              data: 
+                targetLink: ""
+                keepRelativeAttitude: false
+                cameraType: "Perspective"
+                nearClipDistance: 0.05
+                farClipDistance: 200
+                fieldOfView: 0.785398
+            - 
+              id: 37
+              name: "BodyPublisher"
+              plugin: ROS
+              class: BodyPublisherItem
+              data: 
+                maxPublishRate: 30
 views: 
   - 
     id: 0
@@ -482,9 +566,9 @@ views:
     plugin: Base
     class: ItemTreeView
     mounted: true
-    state:
+    state: 
       selected: [ 4 ]
-      checked: [ 8, 14, 16, 18 ]
+      checked: [ 8, 12, 14, 16, 18, 20, 24, 26, 30, 32, 36]
       expanded: [ 2, 4, 6, 15 ]
   - 
     id: 2
@@ -600,14 +684,14 @@ views:
           far: 200
           eye: [ 4, 2, 1.5 ]
           direction: [ -0.888888889, -0.444444444, -0.111111111 ]
-          up: [ -0.099380799, -0.0496903995, 0.99380799 ]
+          up: [ -0.0993807989, -0.0496903995, 0.99380799 ]
         - 
           camera: [ System, Orthographic ]
           orthoHeight: 20
           near: 0.04
           far: 200
         - 
-          camera: [ AizuSpider, FRONT_CAMERA ]
+          camera: [ AizuSpiderAA, FRONT_CAMERA ]
           isCurrent: true
         - 
           camera: BodyTrackingCamera
@@ -744,6 +828,59 @@ Body:
     outputFrameRate: 200
 OpenRTM: 
   "deleteUnmanagedRTCsOnStartingSimulation": false
+viewAreas: 
+  - 
+    type: embedded
+    tabs: true
+    contents: 
+      type: splitter
+      orientation: horizontal
+      sizes: [ 319, 1597 ]
+      children: 
+        - 
+          type: splitter
+          orientation: vertical
+          sizes: [ 561, 560 ]
+          children: 
+            - 
+              type: pane
+              views: [ 1 ]
+              current: 1
+            - 
+              type: pane
+              views: [ 0, 7 ]
+              current: 0
+        - 
+          type: splitter
+          orientation: vertical
+          sizes: [ 897, 224 ]
+          children: 
+            - 
+              type: splitter
+              orientation: horizontal
+              sizes: [ 0, 1593 ]
+              children: 
+                - 
+                  type: pane
+                  views: [ 5, 6 ]
+                  current: 5
+                - 
+                  type: pane
+                  views: [ 3 ]
+                  current: 3
+            - 
+              type: splitter
+              orientation: horizontal
+              sizes: [ 956, 637 ]
+              children: 
+                - 
+                  type: pane
+                  views: [ 2 ]
+                  current: 2
+                - 
+                  type: pane
+                  views: [ 9 ]
+                  current: 9
 layoutOfToolBars: 
   rows: 
     - 

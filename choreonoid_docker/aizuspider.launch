@@ -37,6 +37,15 @@
           type="spawner" args="joint_state_controller
                                fullbody_controller" />
   </group>
+  <group ns="AizuSpiderEE">
+    <param name="robot_description"
+           textfile="$(find aizuspider_description)/AizuSpiderSS.urdf" />
+    <rosparam command="load"
+              file="$(find aizuspider_description)/aizuspider_controller_settings.yaml" />
+    <node name="$(anon cm_spawner)" pkg="controller_manager"
+          type="spawner" args="joint_state_controller
+                               fullbody_controller" />
+  </group>
 
   <node name="choreonoid" pkg="aizuspider_description" type="run_cnoid.sh"
         args="/userdir/Task1-AizuSpiderSS.cnoid" />
