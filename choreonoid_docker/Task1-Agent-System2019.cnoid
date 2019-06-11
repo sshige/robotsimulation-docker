@@ -259,19 +259,19 @@ items:
         isEditable: True
     - 
       id: 13
-      name: "Ceiling4"
+      name: "Ceiling3"
       plugin: Body
       class: BodyItem
       data: 
         modelFile: "${SHARE}/WRS2018/model/CollapsedCeilingA.body"
         currentBaseLink: "Base"
-        rootPosition: [ 9.0, -1.0, 3 ]
+        rootPosition: [ 9.0, -1.0, 3.5 ]
         rootAttitude: [ 
           1, 0, 0, 
           0, 1, 0, 
           0, 0, 1 ]
         jointPositions: [  ]
-        initialRootPosition: [ 9.0, -1.0, 3 ]
+        initialRootPosition: [ 9.0, -1.0, 3.5 ]
         initialRootAttitude: [ 
           1, 0, 0, 
           0, 1, 0, 
@@ -282,19 +282,19 @@ items:
         isEditable: True            
     - 
       id: 14
-      name: "Ceiling5"
+      name: "Ceiling3"
       plugin: Body
       class: BodyItem
       data: 
         modelFile: "${SHARE}/WRS2018/model/CollapsedCeilingD.body"
         currentBaseLink: "Base"
-        rootPosition: [ 9.5, -0.6, 2 ]
+        rootPosition: [ 9.5, -0.6, 4.0 ]
         rootAttitude: [ 
           1, 0, 0, 
           0, 1, 0, 
           0, 0, 1 ]
         jointPositions: [  ]
-        initialRootPosition: [ 9.5, -0.6, 2 ]
+        initialRootPosition: [ 9.5, -0.6, 4.0 ]
         initialRootAttitude: [ 
           1, 0, 0, 
           0, 1, 0, 
@@ -302,7 +302,53 @@ items:
         zmp: [ 0, 0, 0 ]
         collisionDetection: true
         selfCollisionDetection: false
-        isEditable: True                                
+        isEditable: True
+    - 
+      id: 15
+      name: "Ceiling3"
+      plugin: Body
+      class: BodyItem
+      data: 
+        modelFile: "${SHARE}/WRS2018/model/CollapsedCeilingA.body"
+        currentBaseLink: "Base"
+        rootPosition: [ 10.0, -1.0, 4.5 ]
+        rootAttitude: [ 
+          1, 0, 0, 
+          0, 1, 0, 
+          0, 0, 1 ]
+        jointPositions: [  ]
+        initialRootPosition: [ 10.0, -1.0, 4.5 ]
+        initialRootAttitude: [ 
+          1, 0, 0, 
+          0, 1, 0, 
+          0, 0, 1 ]
+        zmp: [ 0, 0, 0 ]
+        collisionDetection: true
+        selfCollisionDetection: false
+        isEditable: True            
+    - 
+      id: 16
+      name: "Ceiling3"
+      plugin: Body
+      class: BodyItem
+      data: 
+        modelFile: "${SHARE}/WRS2018/model/CollapsedCeilingD.body"
+        currentBaseLink: "Base"
+        rootPosition: [ 10.0, -0.6, 5.0 ]
+        rootAttitude: [ 
+          1, 0, 0, 
+          0, 1, 0, 
+          0, 0, 1 ]
+        jointPositions: [  ]
+        initialRootPosition: [ 10.0, -0.6, 5.0 ]
+        initialRootAttitude: [ 
+          1, 0, 0, 
+          0, 1, 0, 
+          0, 0, 1 ]
+        zmp: [ 0, 0, 0 ]
+        collisionDetection: true
+        selfCollisionDetection: false
+        isEditable: True
     - 
       id: 12
       name: "RoadSurfaceT2"
@@ -343,7 +389,7 @@ views:
     class: ItemTreeView
     mounted: true
     state: 
-      checked: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+      checked: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
       expanded: [ 5, 8, 10, 11]
   - 
     id: 2
@@ -352,4 +398,4 @@ views:
     class: SceneView
     state: 
       dedicatedItemTreeViewChecks: true
-      checked: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+      checked: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]

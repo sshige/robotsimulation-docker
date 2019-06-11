@@ -1,0 +1,34 @@
+<launch>
+  <node pkg="spider_chaser" name="SpiderAA" type="spider_chaser.py" output="screen">
+    <remap from="/AizuSpider/joy" to="/AizuSpiderAA/joy" />
+    <remap from="/AizuSpider/FRONT_CAMERA/image" to="/AizuSpiderAA/FRONT_CAMERA/image" />
+    <remap from="/debug_view" to="/AizuSpiderAA/debug_view" />
+    <param name="left_flag" value="True"/>
+  </node>
+  <node pkg="spider_chaser" name="SpiderBB" type="spider_chaser.py" output="screen">
+    <remap from="/AizuSpider/joy" to="/AizuSpiderBB/joy" />
+    <remap from="/AizuSpider/FRONT_CAMERA/image" to="/AizuSpiderBB/FRONT_CAMERA/image" />
+    <remap from="/debug_view" to="/AizuSpiderBB/debug_view" />
+    <param name="left_flag" value="False"/>
+  </node>
+  <node pkg="spider_chaser" name="SpiderCC" type="spider_chaser.py" output="screen">
+    <remap from="/AizuSpider/joy" to="/AizuSpiderCC/joy" />
+    <remap from="/AizuSpider/FRONT_CAMERA/image" to="/AizuSpiderCC/FRONT_CAMERA/image" />
+    <remap from="/debug_view" to="/AizuSpiderCC/debug_view" />
+    <param name="left_flag" value="True"/>
+  </node>
+  <node pkg="spider_chaser" name="SpiderDD" type="spider_chaser.py" output="screen">
+    <remap from="/AizuSpider/joy" to="/AizuSpiderDD/joy" />
+    <remap from="/AizuSpider/FRONT_CAMERA/image" to="/AizuSpiderDD/FRONT_CAMERA/image" />
+    <remap from="/debug_view" to="/AizuSpiderDD/debug_view" />
+    <param name="left_flag" value="False"/>
+  </node>
+  <node pkg="spider_chaser" name="SpiderEE" type="spider_chaser.py" output="screen">
+    <remap from="/AizuSpider/joy" to="/AizuSpiderEE/joy" />
+    <remap from="/AizuSpider/FRONT_CAMERA/image" to="/AizuSpiderEE/FRONT_CAMERA/image" />
+    <remap from="/debug_view" to="/AizuSpiderEE/debug_view" />
+    <param name="left_flag" value="False"/>
+    <param name="helper_flag" value="True"/>
+  </node>
+
+</launch>
